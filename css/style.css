@@ -465,7 +465,7 @@ ul.btn li:last-child {
   background: #11aeef;
   padding: 35px 30px;
   position: relative;
-  z-index: 960;
+  z-index: 1;
 }
 
 .logo a {
