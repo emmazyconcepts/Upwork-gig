@@ -60,6 +60,13 @@
       <div id="content">
          <!-- header -->
          <header>
+            <div style="display: none" id="loader">
+               <img
+                 src="/images/loading.gif"
+                 alt="icon"
+                 class="loading-icon"
+               />
+             </div>
             <!-- header inner -->
             <div class="header">
                <div class="container-fluid">
@@ -232,7 +239,7 @@
           
                         <div id="extras"></div>
                         <div class="flex items-center justify-center ">
-                           <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
+                           <button id="button" class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
                               <div class="absolute inset-0 w-3 bg-[#11aeef] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                               <span class="relative text-black group-hover:text-white">Verify</span>
                             </button>
