@@ -76,7 +76,7 @@
                      </div>
                      <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                         <ul class="btn">
-                           <li class="down_btn"><a href="#">Verify Card</a></li>
+                           <li class="down_btn"><a href="#verify">Verify Card</a></li>
                            <li><a href="#about">About Us</a></li>
                            <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li> -->
                            <li><button type="button" id="sidebarCollapse">
@@ -105,9 +105,9 @@
                         <div class="row">
                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
                               <div class="text-bg">
-                                 <h1>Validate<br> your gift cards<br>with just one click</h1>
+                                 <h1>Validate<br>gift cards<br>with a click</h1>
                                  <p>an efficient frame work that provides a robust verification, Using a smart anti logarithm that runs very fast to provide an adequate activation information.                                 </p>
-                                 <a class="read_more" href="#">Verify Card</a>
+                                 <a class="read_more" href="#verify">Verify Card</a>
                               </div>
                            </div>
                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -127,7 +127,7 @@
                               <div class="text-bg">
                                  <h1>GIFTCARD<br> VALIDATION AND <br>ACTIVATION CHECK</h1>
                                  <p>an efficient frame work that provides a robust verification, Using a smart anti logarithm that runs very fast to provide an adequate activation information.                                 </p>
-                                 <a class="read_more" href="#">Verify Card</a>
+                                 <a class="read_more" href="#verify">Verify Card</a>
                               </div>
                            </div>
                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -148,7 +148,7 @@
                               <div class="text-bg">
                                  <h1>Over 8000+<br> giftcards verified <br> on our site</h1>
                                  <p>an efficient frame work that provides a robust verification, Using a smart anti logarithm that runs very fast to provide an adequate activation information.                                 </p>
-                                 <a class="read_more" href="#">Verify Card</a>
+                                 <a class="read_more" href="#verify">Verify Card</a>
                               </div>
                            </div>
                            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -172,28 +172,81 @@
 
 
          <!-- card verifying side  -->
+
          <div id="verify"  class="about">
             <div class="container-fluid">
-               <div class="row d_flex">
-                  <div class="col-md-5">
-                     <div class="about_img">
-                        <figure><img src="images/about_img.jpg" alt="#"/></figure>
-                     </div>
+               <div class="section mt-2">
+                  <div class="section-title">All Gift Cards Checker</div>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="mb-05">Enter Your Gift Card Redemption Code.</div>
+                      <form class="needs-validation">
+                        <div class="form-group basic animated">
+                          <div class="input-wrapper">
+                            <label class="label" for="amount2">Gift Card Name</label>
+                            <select class="" id="name" name="name" required>
+                              <option value="NONE">Click to Select Gift Card Name</option>
+                              <option value="GOOGLE_PLAY">Google Play</option>
+                              <option value="STEAM">Steam</option>
+                              <option value="APPLE">Apple</option>
+                              <option value="MASTER_CARD">Master Card</option>
+          
+                              <option value="VISA_SILVERY_WHITE">
+                                Visa Silvery White
+                              </option>
+          
+                              <option value="EBAY_CARD">Ebay Card</option>
+                              <option value="FOOTLOCKER">Footlocker</option>
+                              <option value="NIKE_CARD">Nike Card</option>
+                              <option value="AMAZON">Amazon</option>
+                              <option value="AMEX">Amex</option>
+                              <option value="WALMART_VISA">Walmart Visa</option>
+                              <option value="VANILLA">Vanilla</option>
+                              <option value="NORDSTROM_CARD">Nordstrom Card</option>
+                              <option value="SEPHORA">Sephora</option>
+                              <option value="GOOGLE_PLAY">Others</option>
+                            </select>
+                            <i class="clear-input">
+                              <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                          </div>
+                        </div>
+          
+                        <div class="form-group basic animated">
+                          <div class="input-wrapper">
+                            <label class="label" for="code">Redemption Code</label>
+                            <input
+                              type="text"
+                              class="form-control is-invalid"
+                              id="code"
+                              placeholder="Redemption Code"
+                              required
+                            />
+                            <i class="clear-input">
+                              <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                          </div>
+                        </div>
+          
+                        <div id="extras"></div>
+          
+                        <div class="form-group">
+                          <div class="input-wrapper">
+                            <input
+                              type="submit"
+                              class="form-control btn btn-primary"
+                              id="button"
+                              value="Check"
+                            />
+                          </div>
+                        </div>
+                      </form>
+                    </div>
                   </div>
-                  <div class="col-md-7">
-                     <div class="titlepage">
-                        <h2>About <span class="blu">This Software</span></h2>
-                        <p>This is an efficient frame work that
-                           provides a robust ok,
-                           Using a smart anti logarithm that
-                           runs very fast to provide an
-                           adequate activation information.</p>
-                        <a class="read_more">Verify Card</a>
-                     </div>
-                  </div>
-               </div>
+                </div>
             </div>
          </div>
+      
          
          <!-- about -->
          <div id="about"  class="about">
@@ -208,7 +261,7 @@
                      <div class="titlepage">
                         <h2>About <span class="blu">This Software</span></h2>
                         <p>This is an efficient frame work that
-                           provides a robust verification,
+                           provides a robust ok,
                            Using a smart anti logarithm that
                            runs very fast to provide an
                            adequate activation information.</p>
